@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Government portal: clean whites, deep navy, saffron accent */
+    --background: 0.98 0.003 240;
+    --foreground: 0.18 0.03 260;
+
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.03 260;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.03 260;
+
+    /* Primary: deep navy blue - like Indian government portals */
+    --primary: 0.28 0.16 264;
+    --primary-foreground: 0.99 0 0;
+
+    /* Secondary: light blue tint */
+    --secondary: 0.94 0.02 240;
+    --secondary-foreground: 0.28 0.16 264;
+
+    /* Muted */
+    --muted: 0.95 0.01 240;
+    --muted-foreground: 0.5 0.04 264;
+
+    /* Accent: saffron orange - India flag color */
+    --accent: 0.65 0.19 42;
+    --accent-foreground: 0.99 0 0;
+
+    /* Destructive: red */
+    --destructive: 0.55 0.22 27;
+    --destructive-foreground: 0.99 0 0;
+
+    --border: 0.88 0.02 240;
+    --input: 0.88 0.02 240;
+    --ring: 0.28 0.16 264;
+    --radius: 0.5rem;
+
+    /* Success green - India flag */
+    --success: 0.52 0.15 145;
+    --success-foreground: 0.99 0 0;
+
+    /* Saffron */
+    --saffron: 0.65 0.19 42;
+    --navy: 0.28 0.16 264;
+    --india-green: 0.52 0.15 145;
+
+    /* Sidebar: deep navy */
+    --sidebar: 0.22 0.14 264;
+    --sidebar-foreground: 0.92 0.02 240;
+    --sidebar-primary: 0.65 0.19 42;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.3 0.12 264;
+    --sidebar-accent-foreground: 0.99 0 0;
+    --sidebar-border: 0.32 0.1 264;
+    --sidebar-ring: 0.65 0.19 42;
+
+    /* Charts */
+    --chart-1: 0.65 0.19 42;
+    --chart-2: 0.52 0.15 145;
+    --chart-3: 0.28 0.16 264;
+    --chart-4: 0.7 0.12 200;
+    --chart-5: 0.55 0.22 27;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .bg-india-stripe {
+    background: linear-gradient(
+      to right,
+      oklch(0.65 0.19 42) 0%,
+      oklch(0.65 0.19 42) 33.33%,
+      oklch(0.99 0 0) 33.33%,
+      oklch(0.99 0 0) 66.66%,
+      oklch(0.52 0.15 145) 66.66%,
+      oklch(0.52 0.15 145) 100%
+    );
+  }
+
+  .text-saffron {
+    color: oklch(0.65 0.19 42);
+  }
+
+  .text-india-green {
+    color: oklch(0.52 0.15 145);
+  }
+
+  .bg-navy {
+    background-color: oklch(0.22 0.14 264);
+  }
+
+  .bg-saffron {
+    background-color: oklch(0.65 0.19 42);
+  }
+
+  .bg-india-green {
+    background-color: oklch(0.52 0.15 145);
+  }
+
+  .border-saffron {
+    border-color: oklch(0.65 0.19 42);
+  }
+
+  .badge-bjp {
+    background-color: oklch(0.92 0.06 42);
+    color: oklch(0.45 0.15 42);
+  }
+
+  .badge-inc {
+    background-color: oklch(0.9 0.06 264);
+    color: oklch(0.28 0.16 264);
+  }
+
+  .badge-aap {
+    background-color: oklch(0.9 0.06 215);
+    color: oklch(0.35 0.15 215);
+  }
+
+  .badge-sp {
+    background-color: oklch(0.92 0.06 300);
+    color: oklch(0.4 0.15 300);
+  }
+
+  .govt-card {
+    @apply bg-card rounded-lg border border-border shadow-sm;
+    border-top: 3px solid oklch(0.65 0.19 42);
+  }
+
+  .ashoka-spin {
+    animation: ashoka-rotate 8s linear infinite;
+  }
+
+  @keyframes ashoka-rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .checkmark-draw {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: draw-check 0.6s ease forwards 0.3s;
+  }
+
+  @keyframes draw-check {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .circle-draw {
+    stroke-dasharray: 283;
+    stroke-dashoffset: 283;
+    animation: draw-circle 0.5s ease forwards;
+  }
+
+  @keyframes draw-circle {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
